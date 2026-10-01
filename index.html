@@ -226,7 +226,7 @@
       <!-- TODO: Replace with your teaser video -->
       <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
         <!-- TODO: Add your video file path here -->
-        <source src="static/videos/once_all_2.mp4" type="video/mp4">
+        <source src="static/videos/once_all.mp4" type="video/mp4">
       </video>
       <!-- TODO: Replace with your video description -->
       <h2 class="subtitle has-text-centered">
@@ -246,7 +246,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Humanoid robots have achieved strong locomotion capabilities, but reliable navigation on versatile terrains remains challenging because obstacle avoidance must be coordinated with dynamically feasible motion. In this work, we present GuideWalk, a unified end-to-end framework that integrates traversability-aware navigation guidance with terrain-adaptive locomotion teacher for humanoid navigation. Specifically, we introduce a navigation module that provides explicit velocity guidance, decoupling obstacle avoidance from terrain conditions to enable robust planning across diverse environments. We propose a composite teacher distillation scheme, where goal-directed commands and dynamically consistent actions are aggregated and distilled into a single policy. To further improve robustness, the distilled policy is refined with reinforcement learning and an auxiliary behavior cloning objective, which promotes exploration while preserving desirable teacher behaviors. Experiments demonstrate that GuideWalk achieves stable and effective navigation while maintaining stable humanoid locomotion.
+            Humanoid robots have achieved strong locomotion capabilities, but reliable navigation on versatile terrains remains challenging because obstacle avoidance must be coordinated with dynamically feasible motion. In this work, we present GuideWalk, a <b>unified end-to-end framework</b> that integrates <b>traversability-aware navigation guidance</b> with <b>terrain-adaptive locomotion teacher</b> for humanoid navigation. Specifically, we introduce a navigation module that provides <b>explicit velocity guidance</b>, decoupling obstacle avoidance from terrain conditions to enable robust planning across diverse environments. We propose an efficient <b>two-stage training strategy</b> with composite teacher distillation, where goal-directed commands and dynamically consistent actions are aggregated and distilled into a single policy. To further improve robustness, the distilled policy is refined with reinforcement learning and an auxiliary behavior cloning objective, which promotes exploration while preserving desirable teacher behaviors. Experiments demonstrate that GuideWalk achieves terrain-adaptive, goal-directed obstacle navigation across diverse terrains.
           </p>
         </div>
       </div>
@@ -262,7 +262,7 @@
       <h2 class="title is-3" style="text-align: center">Overview</h2>
       <img src="static/images/overview.png" alt="First research result visualization" loading="lazy"/>
       <h2 class="subtitle">
-        <strong style="margin-right: 20px;">Overview of GuideWalk</strong> Left: a composite teacher consisting of a DWA-based navigation module and a pre-trained locomotion policy. Middle: Stage 1, where the student policy is trained via DAgger-based imitation from the composite teacher. Right: Stage 2, where reinforcement learning with an auxiliary imitation objective further refines the policy.
+        <strong style="margin-right: 20px;">Overview of GuideWalk</strong> Left: a composite teacher consisting of a DWA-based navigation module and a pre-trained locomotion policy. Middle: Stage 1, where the student policy and critic are trained via DAgger-based imitation from the composite teacher. Right: Stage 2, where reinforcement learning with an imitation objective further refines the policy.
       </h2>
     </div>
   </div>
@@ -275,65 +275,7 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3" style="text-align: center">Simulation Experiments</h2>
-
-      <!-- Stairs -->
-      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Stairs</h3>
-      <div class="columns is-multiline">
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/ours_stairs.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">Ours</p>
-        </div>
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/wo_loco_stairs.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Loco</p>
-        </div>
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/wo_navi_stairs.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Navi</p>
-        </div>
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/wo_rl_stairs.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o RL</p>
-        </div>
-      </div>
-
-      <!-- Obstacle Avoidance -->
-      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Obstacle Avoidance</h3>
-      <div class="columns is-multiline">
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/ours_obstacles.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">Ours</p>
-        </div>
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/wo_loco_obstacles.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Loco</p>
-        </div>
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/wo_navi_obstacles.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Navi</p>
-        </div>
-        <div class="column is-half">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/wo_rl_obstacles.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o RL</p>
-        </div>
-      </div>
+      <h2 class="title is-3" style="text-align: center">Simulation Results</h2>
 
       <!-- Slope -->
       <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Slope</h3>
@@ -355,16 +297,6 @@
         </div>
       </div>
 
-      <!-- Dense obstacles -->
-      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Dense obstacles</h3>
-      <div class="columns is-centered">
-        <div class="column is-three-quarters">
-          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
-            <source src="static/videos/complex.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-
       <!-- Door -->
       <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Door</h3>
       <div class="columns is-centered">
@@ -374,11 +306,127 @@
           </video>
         </div>
       </div>
+
+      <!-- Obstacle Avoidance on Stairs -->
+      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Obstacle Avoidance on Stairs</h3>
+      <div class="columns is-centered">
+        <div class="column is-three-quarters">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/navi_on_stairs.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Dense obstacles -->
+      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Dense obstacles</h3>
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md); aspect-ratio: 1 / 1; object-fit: cover;">
+            <source src="static/videos/complex.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">GuideWalk</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md); aspect-ratio: 1 / 1; object-fit: cover;">
+            <source src="static/videos/deployable_obstacles.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">Deployable hierarchical</p>
+        </div>
+      </div>
+
+      <!-- Stairs -->
+      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Stairs</h3>
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/ours_stairs.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">GuideWalk</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/deployable_stairs.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">Deployable hierarchical</p>
+        </div>
+      </div>
+
+      
     </div>
   </div>
 </section>
 <hr style="border: none; height: 1px; background-color: #e5e5e5;">
 <!-- End Simulation Experiments -->
+
+
+<!-- Ablation Studies -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center">Ablation Studies</h2>
+
+      <!-- Stairs -->
+      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Stairs</h3>
+      <div class="columns is-multiline">
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/ours_stairs.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">GuideWalk</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/wo_loco_stairs.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Loco. teacher</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/wo_navi_stairs.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Nav. guidance</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/wo_rl_stairs.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Stage 2</p>
+        </div>
+      </div>
+
+      <!-- Obstacle Avoidance -->
+      <h3 class="has-text-centered" style="font-weight: 700; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Obstacle Avoidance</h3>
+      <div class="columns is-multiline">
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/ours_obstacles.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">GuideWalk</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/wo_loco_obstacles.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Loco. teacher</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/wo_navi_obstacles.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Nav. guidance</p>
+        </div>
+        <div class="column is-half">
+          <video poster="" autoplay controls muted loop playsinline width="100%" preload="metadata" style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
+            <source src="static/videos/wo_rl_obstacles.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-secondary);">w/o Stage 2</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr style="border: none; height: 1px; background-color: #e5e5e5;">
+<!-- End Ablation Studies -->
 
 
 <!-- Real World Experiments -->
